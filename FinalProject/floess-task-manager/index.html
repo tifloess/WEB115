@@ -1,0 +1,100 @@
+<!---------------------------->
+<!-- Tabitha Floess         -->
+<!-- WEB115 Final Project   -->
+<!---------------------------->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskFlow Interactive Task Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+
+  <body>
+    <main class="app-shell">
+      <!-- Intro/header section for application -->
+      <section class="hero">
+        <p class="eyebrow">TaskFlow Solutions</p>
+        <h1>Interactive Task Manager</h1>
+        <p class="hero-text">
+          Add, organize, complete, and prioritize your tasks in one dashboard.
+        </p>
+      </section>
+
+
+      <!-- Panel containing task input form -->
+      <section class="panel">
+
+        <!-- Form used to collect new task information -->
+        <form id="taskForm" class="task-form">
+          <div class="form-group wide">
+            <label for="taskName">Task Name</label>
+            <input
+              type="text"
+              id="taskName"
+              name="taskName"
+              placeholder="Example: Finish JavaScript project"
+              autocomplete="off"
+            />
+
+            <!-- Message area used to show validation errors -->
+            <p id="formMessage" class="form-message" aria-live="polite"></p>
+          </div>
+
+
+          <!-- Dropdown menu for selecting task priority -->
+          <div class="form-group">
+            <label for="taskPriority">Priority</label>
+            <select id="taskPriority" name="taskPriority">
+              <option value="High">High</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+
+
+          <!-- Checkbox for marking task as important -->
+          <label class="checkbox-card">
+            <input type="checkbox" id="isImportant" name="isImportant" />
+            <span>Important</span>
+          </label>
+
+
+          <!-- Checkbox for marking task as completed when added -->
+          <label class="checkbox-card">
+            <input type="checkbox" id="isCompleted" name="isCompleted" />
+            <span>Completed</span>
+          </label>
+
+
+          <!-- Submits form and adds task using JavaScript -->
+          <button type="submit" class="submit-button">Add Task</button>
+        </form>
+      </section>
+
+
+      <!-- Header area above task list -->
+      <section class="list-heading">
+        <div>
+          <h2>Your Tasks</h2>
+          <p id="taskCount">No tasks yet. Add one above.</p>
+        </div>
+        <button type="button" id="clearCompletedButton" class="secondary-button">
+          Clear Completed
+        </button>
+      </section>
+
+
+      <!-- Required: Dynamic task display section -->
+       <!-- JavaScript inserts task cards into this -->
+      <div id="taskmanager" class="taskmanager"></div>
+    </main>
+
+
+    <script src="script.js"></script>
+  </body>
+</html>

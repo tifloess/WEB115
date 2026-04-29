@@ -1,0 +1,418 @@
+/* ------------------------ */
+/* Tabitha Floess           */
+/* WEB115 Final Project     */
+/* ------------------------ */
+
+
+
+/* Apply border-box sizing so padding and borders are included in element width */
+* {
+  box-sizing: border-box;
+}
+
+
+/* Set main page spacing, font, text color, and background */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #172033;
+  background:
+    radial-gradient(circle at top left, rgba(78, 115, 223, 0.25), transparent 28rem),
+    linear-gradient(135deg, #f8fbff 0%, #eef3ff 100%);
+}
+
+
+/* Make form controls use same font as rest of page */
+button,
+input,
+select {
+  font: inherit;
+}
+
+
+/* Show a pointer cursor on clickable buttons */
+button {
+  cursor: pointer;
+}
+
+
+/* Center app and limit its maximum width */
+.app-shell {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+
+/* Style top intro section */
+.hero {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+
+/* Style small label above main heading */
+.eyebrow {
+  margin: 0 0 8px;
+  color: #4e73df;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+/* Remove default top margins from common text elements */
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+
+/* Style main page title */
+h1 {
+  margin-bottom: 12px;
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  line-height: 1;
+}
+
+
+/* Limit and soften intro paragraph text */
+.hero-text {
+  margin: 0 auto;
+  max-width: 620px;
+  color: #566071;
+  font-size: 1.08rem;
+}
+
+
+/* Shared card styles for form panel and task cards */
+.panel,
+.task-card {
+  border: 1px solid rgba(78, 115, 223, 0.16);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 24px 70px rgba(38, 57, 97, 0.14);
+  backdrop-filter: blur(10px);
+}
+
+
+/* Add spacing inside form panel */
+.panel {
+  padding: 24px;
+}
+
+
+/* Arrange form controls in a grid */
+.task-form {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto auto auto;
+  gap: 16px;
+  align-items: start;
+}
+
+
+/* Line up checkbox cards and add button with the input boxes */
+.checkbox-card,
+.submit-button {
+  margin-top: 25px;
+}
+
+
+/* Stack each form label above its input */
+.form-group {
+  display: grid;
+  gap: 8px;
+}
+
+
+/* Make form labels bold */
+label {
+  font-weight: 700;
+}
+
+
+/* Style task name input and priority dropdown */
+input[type="text"],
+select {
+  width: 100%;
+  border: 1px solid #d2daea;
+  border-radius: 14px;
+  padding: 13px 14px;
+  color: #172033;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+
+/* Highlight inputs when they are focused */
+input[type="text"]:focus,
+select:focus {
+  border-color: #4e73df;
+  box-shadow: 0 0 0 4px rgba(78, 115, 223, 0.14);
+}
+
+
+/* Style validation message under task name input */
+.form-message {
+  min-height: 18px;
+  margin: 0;
+  color: #c73737;
+  font-size: 0.9rem;
+}
+
+
+/* Style important and completed checkbox boxes */
+.checkbox-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 47px;
+  border: 1px solid #d2daea;
+  border-radius: 14px;
+  padding: 0 14px;
+  background: #ffffff;
+  white-space: nowrap;
+}
+
+
+/* Set checkbox size and accent color */
+.checkbox-card input,
+.task-actions input {
+  width: 18px;
+  height: 18px;
+  accent-color: #4e73df;
+}
+
+
+/* Shared button styles */
+.submit-button,
+.secondary-button,
+.action-button {
+  border: 0;
+  border-radius: 14px;
+  font-weight: 700;
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+
+
+/* Style main add task button */
+.submit-button {
+  min-height: 47px;
+  padding: 0 22px;
+  color: #ffffff;
+  background: #4e73df;
+  box-shadow: 0 12px 24px rgba(78, 115, 223, 0.24);
+}
+
+
+/* Style secondary clear completed button */
+.secondary-button {
+  padding: 11px 16px;
+  color: #4e73df;
+  background: #ffffff;
+  border: 1px solid #d2daea;
+}
+
+
+/* Slightly lift buttons when hovered */
+.submit-button:hover,
+.secondary-button:hover,
+.action-button:hover {
+  transform: translateY(-1px);
+}
+
+
+/* Arrange task list heading and clear button */
+.list-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin: 32px 0 16px;
+}
+
+
+/* Style task list title */
+.list-heading h2 {
+  margin-bottom: 4px;
+  font-size: 1.6rem;
+}
+
+
+/* Style task count text */
+#taskCount {
+  margin: 0;
+  color: #566071;
+}
+
+
+/* Stack task cards with space between them */
+.taskmanager {
+  display: grid;
+  gap: 16px;
+}
+
+
+/* Style the message shown when no tasks exist */
+.empty-state {
+  border: 2px dashed #cbd6ef;
+  border-radius: 20px;
+  padding: 32px;
+  color: #566071;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+
+/* Arrange each task card into content and action sections */
+.task-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  padding: 20px;
+}
+
+
+/* Prevent task content from overflowing its card */
+.task-main {
+  min-width: 0;
+}
+
+
+/* Arrange task name and badges in one wrapping row */
+.task-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+
+/* Style task name */
+.task-name {
+  margin: 0;
+  font-size: 1.18rem;
+  overflow-wrap: anywhere;
+}
+
+
+/* Style status and priority labels */
+.badge {
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+
+/* Style date and ID metadata row */
+.task-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  color: #566071;
+  font-size: 0.93rem;
+}
+
+
+/* Arrange task action controls */
+.task-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  align-items: center;
+}
+
+
+/* Style completed toggle control */
+.complete-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: #f2f5ff;
+  font-weight: 700;
+}
+
+
+/* Style task action buttons */
+.action-button {
+  padding: 9px 11px;
+  color: #172033;
+  background: #f2f5ff;
+}
+
+
+/* Style delete button as a danger action */
+.action-button.danger {
+  color: #c73737;
+  background: #ffecec;
+}
+
+
+/* ---------- CREATING RESPONSIVE DESIGN ---------- */
+
+/* Adjust layout for tablets and smaller screens */
+@media (max-width: 850px) {
+  .task-form {
+    grid-template-columns: 1fr;
+  }
+
+  .wide,
+  .submit-button {
+    grid-column: auto;
+  }
+
+  .checkbox-card,
+  .submit-button {
+    justify-content: center;
+  }
+
+  .task-card {
+    grid-template-columns: 1fr;
+  }
+
+  .task-actions {
+    justify-content: flex-start;
+  }
+}
+
+
+/* Adjust layout for mobile screens */
+@media (max-width: 620px) {
+  .app-shell {
+    width: min(100% - 20px, 1100px);
+    padding: 28px 0;
+  }
+
+  .panel,
+  .task-card {
+    border-radius: 18px;
+  }
+
+  .list-heading {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .task-title-row,
+  .task-meta,
+  .task-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .checkbox-card,
+  .secondary-button,
+  .action-button,
+  .complete-toggle {
+    justify-content: center;
+  }
+}
